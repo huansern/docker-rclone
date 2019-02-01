@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  rclone:
+    container_name: rclone
+    build:
+      context: .
+      args:
+        UID: 1000
+        GID: 1000
+    image: rclone:1t
+    volumes:
+      - /home/user/rclone/data:/rclone/data
+      - /home/user/rclone/config:/rclone/.config/rclone
+      - /home/user/rclone/rclone.sh:/rclone/rclone.sh
